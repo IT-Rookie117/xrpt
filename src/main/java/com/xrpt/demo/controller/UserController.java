@@ -22,6 +22,7 @@ public class UserController {
 
     @RequestMapping("/queryAllUser")
     public ModelAndView queryAllUser(){
+        System.out.println("查询所有");
         List<User> users = userService.queryAllUser();
         ModelAndView model = new ModelAndView();
         model.setViewName("list");
