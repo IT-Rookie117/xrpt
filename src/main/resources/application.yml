@@ -1,0 +1,37 @@
+
+#START 7月12日 吴家星 创建项目
+  # 端口 访问路径
+  server:
+    port: 8080
+    servlet:
+      context-path: /xrpt
+
+  # spring配置
+  spring:
+    # thymeleaf必要配置
+    thymeleaf:
+      cache: false
+      servlet:
+        content-type: text/html
+      mode: LEGACYHTML5
+    # 数据库/连接池 配置
+    profiles:
+      include: druid
+    datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      password: 123
+      username: root
+      url: jdbc:mysql://localhost:3306/xrpt?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+      type: com.alibaba.druid.pool.DruidDataSource
+      druid:
+        initial-size: 8
+        min-idle: 1
+        max-active: 20
+        max-wait: 20000
+
+  # mybaits配置
+  mybatis:
+    configuration:
+      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    mapper-locations: classpath*:mappers/*.xml
+#END

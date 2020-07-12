@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>id</th>
+        <th>手机</th>
+        <th>密码</th>
+    </tr>
+    <tr th:each="user:${users}">
+        <td>[[${user.id}]]</td>
+        <td th:text="${user.phone}">手机</td>
+        <td th:text="${user.password}">密码</td>
+    </tr>
+</table>
+</body>
+</html>
